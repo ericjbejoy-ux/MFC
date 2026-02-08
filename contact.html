@@ -3,24 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Portal | Contact</title>
+    <title>Club Portal | Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; }
+        .pixel-border { border: 4px solid #fff; border-style: double; }
+        .orange-accent { background-color: #f97316; color: #000; }
+        .step-box { border: 2px solid #fff; padding: 10px; text-align: center; }
+        .active-step { background-color: #a3e635; color: #000; }
+        input { background: #111; border: 2px solid #555; padding: 10px; width: 100%; color: #a3e635; }
+        input:focus { border-color: #f97316; outline: none; }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-sm p-4 flex justify-center space-x-6 font-bold">
-        <a href="index.html" class="text-gray-500 hover:text-blue-600">Details</a>
-        <a href="register.html" class="text-gray-500 hover:text-blue-600">Registration</a>
-        <a href="contact.html" class="text-blue-600 border-b-2 border-blue-600">Contact</a>
-    </nav>
+<body class="p-4">
+    <header class="grid grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
+        <a href="index.html" class="step-box bg-gray-800">1<br>Event Details</a>
+        <a href="register.html" class="step-box active-step">2<br>Registration</a>
+        <a href="contact.html" class="step-box bg-gray-800">3<br>Contact</a>
+        <div class="step-box bg-gray-800 opacity-50">4<br>Status</div>
+    </header>
 
-    <main class="max-w-2xl mx-auto mt-10 p-10 bg-white rounded-xl shadow text-center">
-        <h2 class="text-2xl font-bold mb-4">Contact the Team</h2>
-        <p class="text-gray-500 mb-6">Need help with your registration or have dietary requirements?</p>
-        <div class="space-y-2">
-            <p>📧 <strong>Email:</strong> help@codingclub.com</p>
-            <p>📱 <strong>Phone:</strong> +1 234 567 890</p>
-        </div>
-    </main>
+    <div class="flex max-w-6xl mx-auto gap-4">
+        <aside class="w-1/4 pixel-border p-4 h-64">
+            <h3 class="text-center border-b mb-4 text-xl">STATUS</h3>
+            <div id="progress-indicator" class="text-center text-xl text-yellow-400">FORM_PENDING</div>
+        </aside>
+
+        <main class="w-3/4 border-4 border-orange-500 p-1">
+            <div class="bg-orange-500 text-black p-2 font-bold uppercase">📝 User Registration</div>
+            <div class="p-6 bg-black border-2 border-orange-500 mt-1">
+                <form id="regForm" class="space-y-6">
+                    <div>
+                        <label class="block mb-2 text-orange-500 text-xl">> ENTER_NAME:</label>
+                        <input type="text" id="name" required placeholder="________________">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-orange-500 text-xl">> ENTER_EMAIL:</label>
+                        <input type="email" id="email" required placeholder="________________">
+                    </div>
+                    <button type="submit" class="w-full bg-orange-500 text-black font-bold py-3 text-2xl hover:bg-white transition">SUBMIT_APPLICATION</button>
+                </form>
+                <div id="success" class="hidden text-center text-green-400 text-3xl animate-pulse">
+                    ACCESS_GRANTED. REGISTRATION_COMPLETE.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const form = document.getElementById('regForm');
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            form.classList.add('hidden');
+            document.getElementById('success').classList.remove('hidden');
+            document.getElementById('progress-indicator').innerText = 'COMPLETED';
+            document.getElementById('progress-indicator').classList.replace('text-yellow-400', 'text-green-400');
+        };
+    </script>
 </body>
 </html>
-
