@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Portal | Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm p-4 flex justify-center space-x-6 font-bold">
+        <a href="index.html" class="text-gray-500 hover:text-blue-600">Details</a>
+        <a href="register.html" class="text-blue-600 border-b-2 border-blue-600">Registration</a>
+        <a href="contact.html" class="text-gray-500 hover:text-blue-600">Contact</a>
+    </nav>
+
+    <main class="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow">
+        <div class="mb-6">
+            <div class="h-2 w-full bg-gray-200 rounded">
+                <div id="bar" class="h-2 bg-blue-600 rounded transition-all w-0"></div>
+            </div>
+            <p class="text-xs mt-2 text-gray-400">Completion: <span id="percent">0%</span></p>
+        </div>
+
+        <form id="regForm" class="space-y-4">
+            <input type="text" id="name" placeholder="Full Name" required class="w-full p-3 border rounded">
+            <input type="email" id="email" placeholder="Email Address" required class="w-full p-3 border rounded">
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded font-bold">Submit</button>
+        </form>
+        <div id="done" class="hidden text-center text-green-600 font-bold text-xl">🎉 Registered!</div>
+    </main>
+
+    <script>
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => input.addEventListener('input', () => {
+            let count = 0;
+            inputs.forEach(i => { if(i.value) count++ });
+            const progress = (count / inputs.length) * 100;
+            document.getElementById('bar').style.width = progress + '%';
+            document.getElementById('percent').innerText = progress + '%';
+        }));
+
+        document.getElementById('regForm').onsubmit = (e) => {
+            e.preventDefault();
+            document.getElementById('regForm').classList.add('hidden');
+            document.getElementById('done').classList.remove('hidden');
+        };
+    </script>
+</body>
+</html>
 
