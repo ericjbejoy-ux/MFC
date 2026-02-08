@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Event Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .invalid-input { border-color: #ef4444 !important; }
+        .valid-input { border-color: #22c55e !important; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600 tracking-tight">CLUB<span class="text-gray-800">CONNECT</span></div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#details" class="hover:text-blue-600 transition">Event Details</a>
+                <a href="#register" class="hover:text-blue-600 transition">Register</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-600">Menu</button>
+        </nav>
+    </header>
+
+    <section class="bg-blue-600 py-20 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Annual Tech Symposium 2026</h1>
+            <p class="text-xl mb-8 opacity-90">Join us for the biggest innovation event of the year.</p>
+            
+            <div id="countdown" class="flex justify-center space-x-4 text-center">
+                <div class="bg-white/20 p-4 rounded-lg min-w-[80px]">
+                    <span id="days" class="block text-3xl font-bold">00</span>
+                    <span class="text-xs uppercase">Days</span>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg min-w-[80px]">
+                    <span id="hours" class="block text-3xl font-bold">00</span>
+                    <span class="text-xs uppercase">Hours</span>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg min-w-[80px]">
+                    <span id="minutes" class="block text-3xl font-bold">00</span>
+                    <span class="text-xs uppercase">Mins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="details" class="py-16 container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Why Attend?</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="text-blue-600 mb-4 text-2xl font-bold">01.</div>
+                <h3 class="text-xl font-bold mb-2">Expert Keynotes</h3>
+                <p class="text-gray-600">Hear from industry leaders about the future of AI and Web3.</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="text-blue-600 mb-4 text-2xl font-bold">02.</div>
+                <h3 class="text-xl font-bold mb-2">Hands-on Workshops</h3>
+                <p class="text-gray-600">Interactive sessions to build your portfolio and technical skills.</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="text-blue-600 mb-4 text-2xl font-bold">03.</div>
+                <h3 class="text-xl font-bold mb-2">Networking</h3>
+                <p class="text-gray-600">Connect with recruiters and like-minded students over lunch.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-16 bg-gray-100">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="bg-white p-8 rounded-2xl shadow-xl">
+                <h2 class="text-3xl font-bold mb-2">Event Registration</h2>
+                <p class="text-gray-500 mb-6">Secure your spot today.</p>
+
+                <div class="w-full bg-gray-200 h-2 rounded-full mb-8 overflow-hidden">
+                    <div id="progressBar" class="bg-blue-600 h-full transition-all duration-500" style="width: 33%"></div>
+                </div>
+
+                <form id="registrationForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Full Name</label>
+                        <input type="text" id="fullName" required 
+                               class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition" 
+                               placeholder="John Doe">
+                        <p class="text-red-500 text-xs mt-1 hidden" id="nameError">Name is required.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Email Address</label>
+                        <input type="email" id="email" required 
+                               class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition" 
+                               placeholder="john@university.edu">
+                        <p class="text-red-500 text-xs mt-1 hidden" id="emailError">Please enter a valid university email.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Primary Interest</label>
+                        <select id="interest" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <option value="development">Software Development</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="marketing">Digital Marketing</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition transform active:scale-95">
+                        Complete Registration
+                    </button>
+                </form>
+
+                <div id="successMessage" class="hidden text-center py-10">
+                    <div class="text-green-500 text-6xl mb-4">✓</div>
+                    <h3 class="text-2xl font-bold mb-2">Registration Successful!</h3>
+                    <p class="text-gray-600">We've sent a confirmation email to your inbox.</p>
+                    <button onclick="location.reload()" class="mt-6 text-blue-600 font-semibold underline">Register another person</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">Questions? Reach out to <span class="text-white">events@clubconnect.com</span></p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-white">Twitter</a>
+                <a href="#" class="hover:text-white">Instagram</a>
+                <a href="#" class="hover:text-white">LinkedIn</a>
+            </div>
+            <p class="text-sm">&copy; 2026 ClubConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Countdown Timer Logic
+        const eventDate = new Date("March 15, 2026 09:00:00").getTime();
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+        }, 1000);
+
+        // 2. Real-time Validation
+        const form = document.getElementById('registrationForm');
+        const emailInput = document.getElementById('email');
+        const nameInput = document.getElementById('fullName');
+        const progressBar = document.getElementById('progressBar');
+
+        const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        function updateProgress() {
+            let progress = 33;
+            if (nameInput.value.length > 2) progress += 33;
+            if (validateEmail(emailInput.value)) progress += 34;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        emailInput.addEventListener('input', () => {
+            if (validateEmail(emailInput.value)) {
+                emailInput.classList.add('valid-input');
+                emailInput.classList.remove('invalid-input');
+                document.getElementById('emailError').classList.add('hidden');
+            } else {
+                emailInput.classList.add('invalid-input');
+                document.getElementById('emailError').classList.remove('hidden');
+            }
+            updateProgress();
+        });
+
+        nameInput.addEventListener('input', updateProgress);
+
+        // 3. Form Submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple visual feedback for submission
+            form.classList.add('opacity-50', 'pointer-events-none');
+            
+            setTimeout(() => {
+                form.classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+                document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+            }, 800);
+        });
+    </script>
+</body>
+</html>
