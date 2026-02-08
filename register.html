@@ -3,48 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Portal | Register</title>
+    <title>Portal | Tasks</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; }
+        .pixel-border { border: 4px solid #fff; border-style: double; }
+        .orange-accent { background-color: #f97316; color: #000; }
+        .step-box { border: 2px solid #fff; padding: 10px; text-align: center; font-size: 1.1rem; }
+        .active-step { background-color: #a3e635; color: #000; border-color: #a3e635; }
+        input { background: #111; border: 2px solid #f97316; padding: 12px; width: 100%; color: #fff; font-size: 1.2rem; }
+        input:focus { outline: 2px solid #a3e635; }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-sm p-4 flex justify-center space-x-6 font-bold">
-        <a href="index.html" class="text-gray-500 hover:text-blue-600">Details</a>
-        <a href="register.html" class="text-blue-600 border-b-2 border-blue-600">Registration</a>
-        <a href="contact.html" class="text-gray-500 hover:text-blue-600">Contact</a>
-    </nav>
+<body class="p-6">
+    <header class="grid grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
+        <a href="index.html" class="step-box bg-gray-900">1<br>Event Details</a>
+        <a href="register.html" class="step-box active-step">2<br>Tasks</a>
+        <a href="contact.html" class="step-box bg-gray-900">3<br>Contact</a>
+        <div class="step-box bg-gray-900 opacity-40">4<br>Status</div>
+    </header>
 
-    <main class="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow">
-        <div class="mb-6">
-            <div class="h-2 w-full bg-gray-200 rounded">
-                <div id="bar" class="h-2 bg-blue-600 rounded transition-all w-0"></div>
+    <div class="flex max-w-6xl mx-auto gap-4">
+        <aside class="w-1/4 pixel-border p-4 h-64 text-center">
+            <h3 class="border-b border-gray-700 mb-4 text-xl">VERIFICATION</h3>
+            <p id="status-text" class="text-yellow-500 text-2xl animate-pulse">AWAITING_DATA</p>
+        </aside>
+
+        <main class="w-3/4 border-4 border-orange-500 p-1 bg-orange-500">
+            <div class="flex justify-between items-center px-2 py-1 text-black font-bold text-xl uppercase">
+                <span>📝 Task_Submission_Form</span>
+                <span class="bg-black text-white px-2">X</span>
             </div>
-            <p class="text-xs mt-2 text-gray-400">Completion: <span id="percent">0%</span></p>
-        </div>
-
-        <form id="regForm" class="space-y-4">
-            <input type="text" id="name" placeholder="Full Name" required class="w-full p-3 border rounded">
-            <input type="email" id="email" placeholder="Email Address" required class="w-full p-3 border rounded">
-            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded font-bold">Submit</button>
-        </form>
-        <div id="done" class="hidden text-center text-green-600 font-bold text-xl">🎉 Registered!</div>
-    </main>
+            <div class="bg-black p-8 border-2 border-orange-500 mt-0 min-h-[350px]">
+                <form id="taskForm" class="space-y-8">
+                    <div>
+                        <label class="block text-orange-500 text-2xl mb-2">> INPUT_FULL_NAME:</label>
+                        <input type="text" id="name" required placeholder="________________">
+                    </div>
+                    <div>
+                        <label class="block text-orange-500 text-2xl mb-2">> INPUT_EMAIL_AUTH:</label>
+                        <input type="email" id="email" required placeholder="________________">
+                    </div>
+                    <button type="submit" class="w-full orange-accent py-4 text-2xl font-bold hover:bg-white transition">EXECUTE_SUBMISSION</button>
+                </form>
+                <div id="success" class="hidden text-center py-10">
+                    <h2 class="text-green-500 text-5xl font-bold">SUCCESS!</h2>
+                    <p class="text-white text-2xl mt-4">DATA_UPLOADED_TO_MAIN_FRAME.</p>
+                </div>
+            </div>
+            <div class="bg-black p-2 flex justify-end">
+                <button class="orange-accent px-8 py-1 font-bold">CLOSE</button>
+            </div>
+        </main>
+    </div>
 
     <script>
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => input.addEventListener('input', () => {
-            let count = 0;
-            inputs.forEach(i => { if(i.value) count++ });
-            const progress = (count / inputs.length) * 100;
-            document.getElementById('bar').style.width = progress + '%';
-            document.getElementById('percent').innerText = progress + '%';
-        }));
-
-        document.getElementById('regForm').onsubmit = (e) => {
+        document.getElementById('taskForm').onsubmit = (e) => {
             e.preventDefault();
-            document.getElementById('regForm').classList.add('hidden');
-            document.getElementById('done').classList.remove('hidden');
+            document.getElementById('taskForm').classList.add('hidden');
+            document.getElementById('success').classList.remove('hidden');
+            document.getElementById('status-text').innerText = 'VERIFIED';
+            document.getElementById('status-text').classList.replace('text-yellow-500', 'text-green-500');
         };
     </script>
 </body>
 </html>
-
