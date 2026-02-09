@@ -10,51 +10,63 @@
         body { background-color: #000; color: #fff; font-family: 'VT323', monospace; letter-spacing: 1px; }
         .pixel-border { border: 4px solid #00d4ff; border-style: inset; }
         .blue-accent { background-color: #00d4ff; color: #000; }
-        .step-box { border: 3px solid #fff; padding: 12px; text-align: center; font-size: 1.2rem; min-width: 180px; }
-        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 4px 4px 0px #00d4ff; }
+        .step-box { border: 3px solid #fff; padding: 12px; text-align: center; font-size: 1.2rem; min-width: 180px; transition: 0.2s; }
+        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 6px 6px 0px #0e7490; }
         .wide-container { max-width: 1200px; width: 95%; }
+        footer a:hover { color: #00d4ff; text-decoration: underline; }
     </style>
 </head>
-<body class="p-4 flex flex-col items-center">
-    <header class="grid grid-cols-4 gap-2 mb-8 wide-container">
-        <a href="index.html" class="step-box active-step">1 [DETAILS]</a>
-        <a href="register.html" class="step-box bg-gray-900 hover:bg-blue-900">2 [TASKS]</a>
-        <a href="contact.html" class="step-box bg-gray-900 hover:bg-blue-900">3 [CONTACT]</a>
-        <div class="step-box bg-gray-900 opacity-30">4 [STATUS]</div>
+<body class="p-4 flex flex-col items-center min-h-screen">
+
+    <header class="wide-container flex justify-between items-end border-b-4 border-blue-900 pb-2 mb-6">
+        <div class="text-4xl font-bold text-blue-400">[ CLUB_PORTAL_V3 ]</div>
+        <div class="text-xl text-green-400 animate-pulse">SYSTEM_STATUS: STABLE</div>
     </header>
 
-    <div class="flex wide-container gap-6">
-        <aside class="w-1/5 pixel-border p-6 h-80 flex flex-col justify-between">
+    <nav class="grid grid-cols-4 gap-2 mb-8 wide-container">
+        <a href="index.html" class="step-box active-step">1 [DETAILS]</a>
+        <a href="register.html" class="step-box bg-gray-900 hover:scale-105">2 [TASKS]</a>
+        <a href="contact.html" class="step-box bg-gray-900 hover:scale-105">3 [CONTACT]</a>
+        <div class="step-box bg-gray-900 opacity-30 cursor-not-allowed">4 [STATUS]</div>
+    </nav>
+
+    <div class="flex wide-container gap-6 flex-grow">
+        <aside class="w-1/5 pixel-border p-6 h-80 flex flex-col justify-between bg-blue-950/10">
             <div>
-                <h3 class="text-center border-b-2 border-blue-900 mb-6 text-2xl text-blue-300 uppercase">Domains</h3>
+                <h3 class="text-center border-b-2 border-blue-900 mb-6 text-2xl text-blue-300 uppercase">DOMAINS</h3>
                 <div class="blue-accent p-4 text-center text-3xl font-bold shadow-[6px_6px_0px_#0e7490]">TECHNICAL</div>
             </div>
-            <div class="text-xs text-blue-400">BUILD_VER: 1.20.26</div>
+            <div class="text-xs text-blue-400">SESSION_ID: 0x8821B</div>
         </aside>
 
         <main class="w-4/5 border-4 border-blue-400 p-1 bg-blue-400 shadow-[10px_10px_0px_rgba(0,212,255,0.2)]">
-            <div class="flex justify-between items-center px-4 py-2 text-black font-bold text-2xl tracking-tighter">
-                <span>[X] EVENT_REGISTRATION_PORTAL_V2</span>
-                <span class="bg-black text-blue-400 px-3 cursor-pointer border-2 border-black">X</span>
+            <div class="flex justify-between items-center px-4 py-2 text-black font-bold text-2xl">
+                <span>[X] FILE_VIEWER: EVENT_SPECS.LOG</span>
+                <span class="bg-black text-blue-400 px-3 border-2 border-black">X</span>
             </div>
             <div class="bg-black p-10 border-2 border-blue-400 min-h-[400px]">
                 <h2 class="text-5xl text-blue-400 mb-8 uppercase tracking-widest border-b-2 border-blue-900 inline-block">CodeRush 2026</h2>
-                <p class="text-3xl leading-snug text-blue-100 max-w-none">
-                    SYSTEM_LOG: Initializing technical challenges... <br><br>
-                    Base Requirements for candidates: <br>
-                    > Develop responsive UI components <br>
-                    > Integrate real-time validation logic <br>
-                    > Maintain consistent block-style aesthetics
+                <p class="text-3xl leading-snug text-blue-100">
+                    Welcome, candidate. This portal is your primary interface for the 2026 technical recruitment. <br><br>
+                    > STAGE_01: Explore Event Details <br>
+                    > STAGE_02: Submit Required Tasks <br>
+                    > STAGE_03: Confirm via Comms
                 </p>
                 <div class="mt-12 p-6 border-2 border-cyan-500 bg-cyan-950/30 text-cyan-400 text-3xl inline-block">
-                    COUNTDOWN_INITIATED: <span id="timer" class="font-bold">00:00:00</span>
+                    T_MINUS: <span id="timer">00:00:00</span>
                 </div>
-            </div>
-            <div class="bg-black p-3 flex justify-end">
-                <button class="blue-accent px-12 py-2 font-bold text-xl hover:bg-white transition">CLOSE_WINDOW</button>
             </div>
         </main>
     </div>
+
+    <footer class="wide-container mt-12 border-t-4 border-blue-900 pt-6 pb-8 flex justify-between items-center text-gray-500 text-xl">
+        <div class="flex space-x-10">
+            <a href="index.html">HOME</a>
+            <a href="register.html">TASKS</a>
+            <a href="contact.html">SUPPORT</a>
+        </div>
+        <div>© 2026 PIXEL_CLUB_INTRA.NET</div>
+    </footer>
 
     <script>
         const target = new Date("March 15, 2026 09:00:00").getTime();
