@@ -7,77 +7,54 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; letter-spacing: 1px; }
+        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; letter-spacing: 1px; display: flex; flex-direction: column; min-h-screen; }
         .pixel-border { border: 4px solid #00d4ff; border-style: inset; }
         .blue-accent { background-color: #00d4ff; color: #000; }
         .step-box { border: 3px solid #fff; padding: 12px; text-align: center; font-size: 1.2rem; min-width: 180px; }
-        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 6px 6px 0px #0e7490; }
-        .wide-container { max-width: 1200px; width: 95%; }
-        input { background: #000; border: 4px solid #0891b2; padding: 15px; width: 100%; color: #a5f3fc; font-size: 1.5rem; }
+        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 4px 4px 0px #0e7490; }
+        .wide-container { max-width: 1200px; width: 95%; margin: 0 auto; }
+        input { background: #000; border: 4px solid #0891b2; padding: 10px; width: 100%; color: #a5f3fc; }
+        footer { margin-top: auto; background: #000; z-index: 100; border-top: 4px solid #1e3a8a; }
     </style>
 </head>
-<body class="p-4 flex flex-col items-center min-h-screen">
+<body class="p-4">
 
-    <header class="wide-container flex justify-between items-end border-b-4 border-blue-900 pb-2 mb-6">
+    <header class="wide-container flex justify-between items-end pb-2 mb-6 border-b-4 border-blue-900">
         <div class="text-4xl font-bold text-blue-400">[ CLUB_PORTAL_V3 ]</div>
-        <div class="text-xl text-blue-300 tracking-widest">LOGGED_AS: GUEST_USER</div>
+        <div class="text-xl text-yellow-400 tracking-tighter">TASK_MODULE: ACTIVE</div>
     </header>
 
     <nav class="grid grid-cols-4 gap-2 mb-8 wide-container">
-        <a href="index.html" class="step-box bg-gray-900">1 [DETAILS]</a>
+        <a href="index.html" class="step-box bg-gray-900 hover:bg-blue-900">1 [DETAILS]</a>
         <a href="register.html" class="step-box active-step">2 [TASKS]</a>
-        <a href="contact.html" class="step-box bg-gray-900">3 [CONTACT]</a>
+        <a href="contact.html" class="step-box bg-gray-900 hover:bg-blue-900">3 [CONTACT]</a>
         <div class="step-box bg-gray-900 opacity-30">4 [STATUS]</div>
     </nav>
 
-    <div class="flex wide-container gap-6 flex-grow">
-        <aside class="w-1/5 pixel-border p-6 h-80 text-center">
-            <h3 class="border-b-2 border-blue-900 mb-8 text-2xl uppercase">INTEGRITY</h3>
-            <p id="status-text" class="text-blue-300 text-3xl animate-pulse">AWAITING_INPUT</p>
+    <div class="flex wide-container gap-6 mb-10">
+        <aside class="w-1/5 pixel-border p-6 h-64 text-center">
+            <h3 class="border-b-2 border-blue-900 mb-4 text-xl">STATUS</h3>
+            <p id="st" class="text-blue-300 text-2xl animate-pulse">PENDING_INPUT</p>
         </aside>
 
         <main class="w-4/5 border-4 border-blue-400 p-1 bg-blue-400">
-            <div class="flex justify-between items-center px-4 py-2 text-black font-bold text-2xl uppercase">
-                <span>[+] TASK_SUBMISSION_FIELD</span>
-                <span class="bg-black text-white px-2">X</span>
-            </div>
             <div class="bg-black p-10 border-2 border-blue-400">
-                <form id="taskForm" class="space-y-10">
-                    <div>
-                        <label class="block text-blue-400 text-3xl mb-4"># USER_IDENTIFICATION:</label>
-                        <input type="text" id="name" required placeholder="Type Name...">
-                    </div>
-                    <div>
-                        <label class="block text-blue-400 text-3xl mb-4"># COMMS_ADDRESS:</label>
-                        <input type="email" id="email" required placeholder="Type Email...">
-                    </div>
-                    <button type="submit" class="w-full blue-accent py-5 text-3xl font-bold hover:bg-white transition shadow-[8px_8px_0px_#083344]">COMMIT_TO_DATABASE</button>
+                <form id="tf" class="space-y-6">
+                    <label class="block text-2xl text-blue-400">USER_NAME:</label>
+                    <input type="text" required>
+                    <button class="w-full blue-accent py-3 text-2xl font-bold">SUBMIT</button>
                 </form>
-                <div id="success" class="hidden text-center py-16">
-                    <h2 class="text-cyan-400 text-6xl font-bold uppercase tracking-tighter">Data Synchronized!</h2>
-                    <p class="text-white text-3xl mt-6">Application ID: #TRN-4092-X</p>
-                </div>
             </div>
         </main>
     </div>
 
-    <footer class="wide-container mt-12 border-t-4 border-blue-900 pt-6 pb-8 flex justify-between items-center text-gray-500 text-xl">
-        <div class="flex space-x-10">
-            <a href="index.html">HOME</a>
-            <a href="register.html" class="text-blue-400">TASKS</a>
-            <a href="contact.html">SUPPORT</a>
+    <footer class="wide-container py-6 flex justify-between items-center text-xl text-gray-500">
+        <div class="flex space-x-8">
+            <a href="index.html" class="hover:text-blue-400">⟇ HOME</a>
+            <a href="register.html" class="hover:text-blue-400">⟇ TASKS</a>
+            <a href="contact.html" class="hover:text-blue-400">⟇ SUPPORT</a>
         </div>
-        <div>© 2026 PIXEL_CLUB_INTRA.NET</div>
+        <div>BUILD_2026.02.09</div>
     </footer>
-
-    <script>
-        document.getElementById('taskForm').onsubmit = (e) => {
-            e.preventDefault();
-            document.getElementById('taskForm').classList.add('hidden');
-            document.getElementById('success').classList.remove('hidden');
-            document.getElementById('status-text').innerText = 'ENCRYPTED';
-            document.getElementById('status-text').style.color = '#22d3ee';
-        };
-    </script>
 </body>
 </html>
