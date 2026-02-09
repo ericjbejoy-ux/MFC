@@ -7,72 +7,50 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; letter-spacing: 1px; }
+        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; letter-spacing: 1px; display: flex; flex-direction: column; min-h-screen; }
         .pixel-border { border: 4px solid #00d4ff; border-style: inset; }
         .blue-accent { background-color: #00d4ff; color: #000; }
         .step-box { border: 3px solid #fff; padding: 12px; text-align: center; font-size: 1.2rem; min-width: 180px; }
-        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 6px 6px 0px #0e7490; }
-        .wide-container { max-width: 1200px; width: 95%; }
+        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 4px 4px 0px #0e7490; }
+        .wide-container { max-width: 1200px; width: 95%; margin: 0 auto; }
+        footer { margin-top: auto; background: #000; z-index: 100; border-top: 4px solid #1e3a8a; }
     </style>
 </head>
-<body class="p-4 flex flex-col items-center min-h-screen">
+<body class="p-4">
 
-    <header class="wide-container flex justify-between items-end border-b-4 border-blue-900 pb-2 mb-6">
+    <header class="wide-container flex justify-between items-end pb-2 mb-6 border-b-4 border-blue-900">
         <div class="text-4xl font-bold text-blue-400">[ CLUB_PORTAL_V3 ]</div>
-        <div class="text-xl text-orange-400">ENCRYPTION: ACTIVE</div>
+        <div class="text-xl text-blue-300 italic">ENCRYPTED_LINE_01</div>
     </header>
 
     <nav class="grid grid-cols-4 gap-2 mb-8 wide-container">
-        <a href="index.html" class="step-box bg-gray-900">1 [DETAILS]</a>
-        <a href="register.html" class="step-box bg-gray-900">2 [TASKS]</a>
+        <a href="index.html" class="step-box bg-gray-900 hover:bg-blue-900">1 [DETAILS]</a>
+        <a href="register.html" class="step-box bg-gray-900 hover:bg-blue-900">2 [TASKS]</a>
         <a href="contact.html" class="step-box active-step">3 [CONTACT]</a>
         <div class="step-box bg-gray-900 opacity-30">4 [STATUS]</div>
     </nav>
 
-    <div class="flex wide-container gap-6 flex-grow">
-        <aside class="w-1/5 pixel-border p-6 h-80">
-            <h3 class="text-center border-b-2 border-blue-900 mb-6 text-2xl uppercase">NET_MAP</h3>
-            <div class="text-cyan-500 text-lg space-y-2">
-                <p>> NODE_A: UP</p>
-                <p>> NODE_B: UP</p>
-                <p>> ADMIN: ON</p>
-            </div>
+    <div class="flex wide-container gap-6 mb-10">
+        <aside class="w-1/5 pixel-border p-6 h-64">
+            <h3 class="text-center border-b-2 border-blue-900 mb-4 text-xl uppercase">Map</h3>
+            <p class="text-cyan-500 text-lg">HUB_SECTOR: UP</p>
         </aside>
 
         <main class="w-4/5 border-4 border-blue-400 p-1 bg-blue-400">
-            <div class="flex justify-between items-center px-4 py-2 text-black font-bold text-2xl uppercase">
-                <span>[?] COMMS_OVERRIDE_ACTIVE</span>
-                <span class="bg-black text-white px-3">X</span>
-            </div>
-            <div class="bg-black p-10 border-2 border-blue-400 min-h-[400px]">
-                <div class="text-3xl space-y-8">
-                    <p class="text-cyan-500 animate-pulse">> Pinging DevClub Servers... [SUCCESS]</p>
-                    <div class="grid grid-cols-2 gap-10">
-                        <div class="border-l-4 border-blue-900 pl-6">
-                            <p class="text-blue-400 font-bold uppercase underline">Electronic_Mail</p>
-                            <p class="mt-2 text-white">admin@club_network.io</p>
-                        </div>
-                        <div class="border-l-4 border-blue-900 pl-6">
-                            <p class="text-blue-400 font-bold uppercase underline">Main_Frequency</p>
-                            <p class="mt-2 text-white">+44 800-BLOCK-CODE</p>
-                        </div>
-                        <div class="border-l-4 border-blue-900 pl-6 col-span-2">
-                            <p class="text-blue-400 font-bold uppercase underline">Physical_Loc</p>
-                            <p class="mt-2 text-white">Server Room 01, Basement Level, Tech Plaza</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="bg-black p-10 border-2 border-blue-400 min-h-[300px]">
+                <p class="text-3xl text-cyan-500">> COMMS: core@devclub.io</p>
+                <p class="text-3xl text-cyan-500 mt-4">> DISCORD: /devclub-26</p>
             </div>
         </main>
     </div>
 
-    <footer class="wide-container mt-12 border-t-4 border-blue-900 pt-6 pb-8 flex justify-between items-center text-gray-500 text-xl">
-        <div class="flex space-x-10">
-            <a href="index.html">HOME</a>
-            <a href="register.html">TASKS</a>
-            <a href="contact.html" class="text-blue-400">SUPPORT</a>
+    <footer class="wide-container py-6 flex justify-between items-center text-xl text-gray-500">
+        <div class="flex space-x-8">
+            <a href="index.html" class="hover:text-blue-400">⟇ HOME</a>
+            <a href="register.html" class="hover:text-blue-400">⟇ TASKS</a>
+            <a href="contact.html" class="hover:text-blue-400">⟇ SUPPORT</a>
         </div>
-        <div>© 2026 PIXEL_CLUB_INTRA.NET</div>
+        <div>BUILD_2026.02.09</div>
     </footer>
 </body>
 </html>
