@@ -3,58 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal | Tasks</title>
+    <title>CyberPulse | Domains</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000; color: #fff; font-family: 'VT323', monospace; letter-spacing: 1px; display: flex; flex-direction: column; min-h-screen; }
-        .pixel-border { border: 4px solid #00d4ff; border-style: inset; }
-        .blue-accent { background-color: #00d4ff; color: #000; }
-        .step-box { border: 3px solid #fff; padding: 12px; text-align: center; font-size: 1.2rem; min-width: 180px; }
-        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 4px 4px 0px #0e7490; }
-        .wide-container { max-width: 1200px; width: 95%; margin: 0 auto; }
-        input { background: #000; border: 4px solid #0891b2; padding: 10px; width: 100%; color: #a5f3fc; }
-        footer { margin-top: auto; background: #000; z-index: 100; border-top: 4px solid #1e3a8a; }
+        :root { --neon-blue: #00f2ff; --neon-pink: #ff00ff; }
+        body { background: #05000a; color: #e0e0e0; font-family: 'Rajdhani', sans-serif; padding-bottom: 100px; }
+        .glass-card { background: rgba(0, 242, 255, 0.05); border: 1px solid rgba(0, 242, 255, 0.2); transition: 0.4s; cursor: pointer; }
+        .glass-card:hover { background: rgba(0, 242, 255, 0.1); border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 242, 255, 0.2); }
+        .task-list { display: none; } /* Hidden until domain is clicked */
+        .fixed-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #05000a; border-top: 1px solid var(--neon-blue); padding: 20px 0; }
     </style>
 </head>
-<body class="p-4">
-
-    <header class="wide-container flex justify-between items-end pb-2 mb-6 border-b-4 border-blue-900">
-        <div class="text-4xl font-bold text-blue-400">[ CLUB_PORTAL_V3 ]</div>
-        <div class="text-xl text-yellow-400 tracking-tighter">TASK_MODULE: ACTIVE</div>
+<body class="p-8">
+    <header class="max-w-6xl mx-auto flex justify-between items-center mb-16">
+        <h1 class="header-font text-3xl font-bold tracking-widest text-cyan-400">SELECT_DOMAIN</h1>
     </header>
 
-    <nav class="grid grid-cols-4 gap-2 mb-8 wide-container">
-        <a href="index.html" class="step-box bg-gray-900 hover:bg-blue-900">1 [DETAILS]</a>
-        <a href="register.html" class="step-box active-step">2 [TASKS]</a>
-        <a href="contact.html" class="step-box bg-gray-900 hover:bg-blue-900">3 [CONTACT]</a>
-        <div class="step-box bg-gray-900 opacity-30">4 [STATUS]</div>
-    </nav>
-
-    <div class="flex wide-container gap-6 mb-10">
-        <aside class="w-1/5 pixel-border p-6 h-64 text-center">
-            <h3 class="border-b-2 border-blue-900 mb-4 text-xl">STATUS</h3>
-            <p id="st" class="text-blue-300 text-2xl animate-pulse">PENDING_INPUT</p>
-        </aside>
-
-        <main class="w-4/5 border-4 border-blue-400 p-1 bg-blue-400">
-            <div class="bg-black p-10 border-2 border-blue-400">
-                <form id="tf" class="space-y-6">
-                    <label class="block text-2xl text-blue-400">USER_NAME:</label>
-                    <input type="text" required>
-                    <button class="w-full blue-accent py-3 text-2xl font-bold">SUBMIT</button>
-                </form>
-            </div>
-        </main>
+    <div id="domainView" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div onclick="showTasks('TECHNICAL')" class="glass-card p-10 text-center">
+            <h3 class="text-3xl font-bold text-cyan-400 mb-4">TECHNICAL</h3>
+            <p class="text-gray-400">Development, Security, Infrastructure.</p>
+        </div>
+        <div class="glass-card p-10 text-center opacity-40 cursor-not-allowed">
+            <h3 class="text-3xl font-bold text-gray-500 mb-4">CREATIVE</h3>
+            <p class="text-gray-600">Locked Level.</p>
+        </div>
+        <div class="glass-card p-10 text-center opacity-40 cursor-not-allowed">
+            <h3 class="text-3xl font-bold text-gray-500 mb-4">MANAGEMENT</h3>
+            <p class="text-gray-600">Locked Level.</p>
+        </div>
     </div>
 
-    <footer class="wide-container py-6 flex justify-between items-center text-xl text-gray-500">
-        <div class="flex space-x-8">
-            <a href="index.html" class="hover:text-blue-400">⟇ HOME</a>
-            <a href="register.html" class="hover:text-blue-400">⟇ TASKS</a>
-            <a href="contact.html" class="hover:text-blue-400">⟇ SUPPORT</a>
+    <div id="taskView" class="max-w-4xl mx-auto task-list">
+        <button onclick="location.reload()" class="text-cyan-400 mb-8 uppercase tracking-widest">← Back to Domains</button>
+        <div class="border-l-4 border-cyan-400 pl-8 space-y-12">
+            <div>
+                <h4 class="text-3xl text-white uppercase mb-2">Task 01: The Frontend Breach</h4>
+                <p class="text-xl text-gray-400">Replicate a 3-page responsive architecture using only modern utility frameworks.</p>
+            </div>
+            <div>
+                <h4 class="text-3xl text-white uppercase mb-2">Task 02: Neural Styling</h4>
+                <p class="text-xl text-gray-400">Apply a Neo-Retro theme across all operational files with persistent navigation.</p>
+            </div>
+            <div class="pt-8">
+                <input type="text" placeholder="ENTER_SUBMISSION_LINK" class="w-full bg-transparent border-b border-cyan-400 py-4 text-2xl outline-none">
+                <button class="mt-8 px-12 py-3 bg-cyan-600 text-black font-bold uppercase hover:bg-white transition">Submit Data</button>
+            </div>
         </div>
-        <div>BUILD_2026.02.09</div>
+    </div>
+
+    <footer class="fixed-footer">
+        <div class="max-w-6xl mx-auto flex justify-between px-8 items-center text-sm font-bold tracking-widest text-gray-500">
+            <div class="flex space-x-12">
+                <a href="index.html">HOME</a>
+                <a href="register.html" class="text-cyan-400">DOMAINS</a>
+                <a href="contact.html">SUPPORT</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        function showTasks(domain) {
+            document.getElementById('domainView').style.display = 'none';
+            document.getElementById('taskView').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
