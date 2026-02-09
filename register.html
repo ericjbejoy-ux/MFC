@@ -11,24 +11,29 @@
         .pixel-border { border: 4px solid #00d4ff; border-style: inset; }
         .blue-accent { background-color: #00d4ff; color: #000; }
         .step-box { border: 3px solid #fff; padding: 12px; text-align: center; font-size: 1.2rem; min-width: 180px; }
-        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 4px 4px 0px #00d4ff; }
+        .active-step { background-color: #a5f3fc; color: #000; border-color: #a5f3fc; box-shadow: 6px 6px 0px #0e7490; }
         .wide-container { max-width: 1200px; width: 95%; }
         input { background: #000; border: 4px solid #0891b2; padding: 15px; width: 100%; color: #a5f3fc; font-size: 1.5rem; }
-        input:focus { border-color: #00d4ff; outline: none; background: #083344; }
     </style>
 </head>
-<body class="p-4 flex flex-col items-center">
-    <header class="grid grid-cols-4 gap-2 mb-8 wide-container">
-        <a href="index.html" class="step-box bg-gray-900 hover:bg-blue-900">1 [DETAILS]</a>
-        <a href="register.html" class="step-box active-step">2 [TASKS]</a>
-        <a href="contact.html" class="step-box bg-gray-900 hover:bg-blue-900">3 [CONTACT]</a>
-        <div class="step-box bg-gray-900 opacity-30">4 [STATUS]</div>
+<body class="p-4 flex flex-col items-center min-h-screen">
+
+    <header class="wide-container flex justify-between items-end border-b-4 border-blue-900 pb-2 mb-6">
+        <div class="text-4xl font-bold text-blue-400">[ CLUB_PORTAL_V3 ]</div>
+        <div class="text-xl text-blue-300 tracking-widest">LOGGED_AS: GUEST_USER</div>
     </header>
 
-    <div class="flex wide-container gap-6">
+    <nav class="grid grid-cols-4 gap-2 mb-8 wide-container">
+        <a href="index.html" class="step-box bg-gray-900">1 [DETAILS]</a>
+        <a href="register.html" class="step-box active-step">2 [TASKS]</a>
+        <a href="contact.html" class="step-box bg-gray-900">3 [CONTACT]</a>
+        <div class="step-box bg-gray-900 opacity-30">4 [STATUS]</div>
+    </nav>
+
+    <div class="flex wide-container gap-6 flex-grow">
         <aside class="w-1/5 pixel-border p-6 h-80 text-center">
-            <h3 class="border-b-2 border-blue-900 mb-8 text-2xl uppercase">Integrity</h3>
-            <p id="status-text" class="text-blue-300 text-3xl animate-pulse">WAITING_FOR_INPUT</p>
+            <h3 class="border-b-2 border-blue-900 mb-8 text-2xl uppercase">INTEGRITY</h3>
+            <p id="status-text" class="text-blue-300 text-3xl animate-pulse">AWAITING_INPUT</p>
         </aside>
 
         <main class="w-4/5 border-4 border-blue-400 p-1 bg-blue-400">
@@ -53,11 +58,17 @@
                     <p class="text-white text-3xl mt-6">Application ID: #TRN-4092-X</p>
                 </div>
             </div>
-            <div class="bg-black p-3 flex justify-end">
-                <button class="blue-accent px-12 py-2 font-bold text-xl">CLOSE</button>
-            </div>
         </main>
     </div>
+
+    <footer class="wide-container mt-12 border-t-4 border-blue-900 pt-6 pb-8 flex justify-between items-center text-gray-500 text-xl">
+        <div class="flex space-x-10">
+            <a href="index.html">HOME</a>
+            <a href="register.html" class="text-blue-400">TASKS</a>
+            <a href="contact.html">SUPPORT</a>
+        </div>
+        <div>© 2026 PIXEL_CLUB_INTRA.NET</div>
+    </footer>
 
     <script>
         document.getElementById('taskForm').onsubmit = (e) => {
