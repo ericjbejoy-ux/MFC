@@ -8,37 +8,34 @@
 </head>
 <body class="p-10">
     <div class="max-w-xl mx-auto">
-        <a href="index.html" class="text-orange-500 text-sm mb-10 block">← ABORT_TO_DASHBOARD</a>
+        <a href="index.html" class="text-orange-500 text-sm mb-10 block">← EXIT_PORTAL</a>
         
-        <div class="card">
-            <div id="progress" class="text-[10px] text-gray-500 mb-4">STEP 1 OF 2</div>
-            <h2 class="text-3xl font-bold mb-6">RECRUIT_FORM</h2>
-            
+        <div id="form-container" class="card">
+            <h2 class="text-3xl font-bold mb-6 italic">SECURE_REGISTRATION</h2>
             <form id="regForm">
                 <div id="step1">
-                    <div class="mb-6">
-                        <label class="block text-xs uppercase text-gray-500 mb-2">Registration Number</label>
-                        <input type="text" placeholder="23BCE0000" class="w-full bg-black/50 border border-gray-800 p-3 rounded outline-none focus:border-orange-500 transition" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-xs uppercase text-gray-500 mb-2">Official Email</label>
-                        <input type="email" placeholder="name@vitstudent.ac.in" class="w-full bg-black/50 border border-gray-800 p-3 rounded outline-none focus:border-orange-500 transition" required>
-                    </div>
-                    <button type="button" onclick="next()" class="btn-primary w-full">Next Phase</button>
+                    <input type="text" placeholder="Full Name" class="w-full bg-black/50 border border-gray-800 p-3 rounded mb-4 outline-none focus:border-orange-500" required>
+                    <input type="text" placeholder="Registration Number" class="w-full bg-black/50 border border-gray-800 p-3 rounded mb-6 outline-none focus:border-orange-500" required>
+                    <button type="button" onclick="next()" class="btn-primary w-full">PROCEED</button>
                 </div>
 
                 <div id="step2" class="hidden">
-                    <div class="mb-6">
-                        <label class="block text-xs uppercase text-gray-500 mb-2">Select Domain</label>
-                        <select class="w-full bg-black border border-gray-800 p-3 rounded">
-                            <option>Technical (Frontend/Backend)</option>
-                            <option>Design (UI/UX)</option>
-                            <option>Management</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary w-full">Finalize Registration</button>
+                    <select class="w-full bg-black border border-gray-800 p-3 rounded mb-6 text-gray-400">
+                        <option>Technical (Frontend/Backend)</option>
+                        <option>Cyber Security</option>
+                        <option>Design & Branding</option>
+                        <option>Management & PR</option>
+                    </select>
+                    <button type="submit" class="btn-primary w-full">FINALIZE APPLICATION</button>
                 </div>
             </form>
+        </div>
+
+        <div id="success-message" class="hidden text-center card border-green-500/50">
+            <div class="text-5xl mb-4">✓</div>
+            <h2 class="text-3xl font-bold text-white mb-2 uppercase">Entry Accepted</h2>
+            <p class="text-gray-400 mb-6">Your data has been encrypted and uploaded to the Firefox Club database.</p>
+            <a href="index.html" class="inline-block border border-orange-500 px-6 py-2 text-orange-500 rounded hover:bg-orange-500 hover:text-black transition">RETURN TO DASHBOARD</a>
         </div>
     </div>
 
@@ -46,12 +43,13 @@
         function next() {
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
-            document.getElementById('progress').innerText = "STEP 2 OF 2";
         }
+
         document.getElementById('regForm').onsubmit = (e) => {
             e.preventDefault();
-            alert("SUCCESS: Application Encrypted and Sent.");
-            window.location.href = "index.html";
+            // Hide form, Show success
+            document.getElementById('form-container').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
         }
     </script>
 </body>
