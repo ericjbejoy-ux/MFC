@@ -10,71 +10,78 @@
 
 <div class="dashboard-container">
     <nav class="sidebar">
-        <div class="nav-icon active" onclick="showTab('home')" title="Home">HOME</div>
-        <div class="nav-icon" onclick="showTab('dash')" title="User Dashboard">DASH</div>
-        <div class="nav-icon" onclick="showTab('faq')" title="FAQs">FAQ</div>
-        <a href="register.html" class="nav-icon" title="Register">REG</a>
-        <a href="contact.html" class="nav-icon" title="Support">HELP</a>
-        <div class="nav-icon mt-auto text-red-500" onclick="logout()" title="Logout">OFF</div>
+        <div class="nav-icon active" onclick="showTab('home')">HOME</div>
+        <div class="nav-icon" onclick="showTab('dash')">DASH</div>
+        <div class="nav-icon" onclick="showTab('faq')">FAQ</div>
+        <a href="register.html" class="nav-icon">REG</a>
+        <a href="contact.html" class="nav-icon">HELP</a>
+        <div class="nav-icon mt-auto text-red-500" onclick="logout()">OFF</div>
     </nav>
 
     <main class="main-view">
         <header class="flex justify-between items-center mb-10">
             <h1 class="text-2xl font-bold tracking-widest uppercase">Cyber_Pulse <span class="text-orange-500">v2.0</span></h1>
-            <div class="text-right">
-                <p class="text-[10px] text-gray-500 uppercase">System Time</p>
-                <p id="clock" class="font-mono text-orange-500">00:00:00</p>
-            </div>
+            <div id="clock" class="font-mono text-orange-500 bg-black px-4 py-1 rounded border border-gray-800">00:00:00</div>
         </header>
 
         <section id="home-tab" class="tab-content">
-            <div class="card bg-gradient-to-br from-orange-500/10 to-transparent">
+            <div class="card bg-gradient-to-br from-orange-500/10 to-transparent mb-8">
                 <h2 class="text-5xl font-bold mb-4 italic">The Future is Open.</h2>
-                <p class="text-gray-400 text-lg mb-8">Mozilla Firefox Club VIT is searching for the next generation of developers. Are you ready to join the elite?</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="card text-center"><p class="text-2xl font-bold">10+</p><p class="text-xs text-gray-500">Years</p></div>
-                    <div class="card text-center"><p class="text-2xl font-bold">150+</p><p class="text-xs text-gray-500">Members</p></div>
-                    <div class="card text-center"><p class="text-2xl font-bold">50+</p><p class="text-xs text-gray-500">Events</p></div>
-                    <div class="card text-center"><p class="text-2xl font-bold">100+</p><p class="text-xs text-gray-500">Projects</p></div>
+                <p class="text-gray-400 text-lg">Select a domain below to view your specific track.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card hover:bg-orange-500/5 cursor-pointer">
+                    <h3 class="text-orange-500 font-bold mb-2">01. BACKEND_DEV</h3>
+                    <p class="text-xs text-gray-500">Node.js, Python, Databases, API Architecture.</p>
+                </div>
+                <div class="card hover:bg-orange-500/5 cursor-pointer">
+                    <h3 class="text-orange-500 font-bold mb-2">02. DESIGN_UIUX</h3>
+                    <p class="text-xs text-gray-500">Figma, Prototyping, Neo-retro Aesthetics.</p>
+                </div>
+                <div class="card hover:bg-orange-500/5 cursor-pointer">
+                    <h3 class="text-orange-500 font-bold mb-2">03. MANAGEMENT</h3>
+                    <p class="text-xs text-gray-500">Event planning, Logistics, PR & Outreach.</p>
                 </div>
             </div>
         </section>
 
         <section id="dash-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold mb-6">User_Panel</h2>
+            <h2 class="text-3xl font-bold mb-6 italic">Personnel_Overview</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="card">
-                    <p class="text-orange-500 text-sm mb-2 font-bold uppercase">Application Progress</p>
-                    <h3 class="text-xl mb-4">Frontend Domain: Level 01</h3>
-                    <div class="w-full bg-gray-800 h-1 rounded-full mb-2">
-                        <div class="bg-orange-500 h-1 rounded-full" style="width: 65%"></div>
-                    </div>
-                    <p class="text-xs text-gray-500">Next Step: Technical Interview</p>
+                <div class="card border-l-4 border-orange-500">
+                    <p class="text-xs text-gray-500 uppercase">Current Domain</p>
+                    <h3 class="text-xl font-bold">Frontend Engineering</h3>
+                    <div class="mt-4 p-2 bg-black rounded text-xs font-mono text-green-500">STATUS: TASK_RECEIVED</div>
                 </div>
-                <div class="card">
-                    <p class="text-gray-500 text-sm mb-2 font-bold uppercase">Recent Alerts</p>
-                    <ul class="text-sm space-y-2">
-                        <li>• Task submission received.</li>
-                        <li>• Discord server invite sent to email.</li>
-                    </ul>
+                <div class="card border-l-4 border-gray-700">
+                    <p class="text-xs text-gray-500 uppercase">Interview Schedule</p>
+                    <h3 class="text-xl font-bold">Pending Review</h3>
+                    <p class="text-xs text-gray-400 mt-2">Check back after 24 hours.</p>
                 </div>
             </div>
         </section>
 
         <section id="faq-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold mb-6 italic">Frequently_Asked</h2>
+            <h2 class="text-3xl font-bold mb-6 italic">Knowledge_Base</h2>
             <div class="space-y-4">
                 <details class="card group">
                     <summary class="list-none cursor-pointer font-bold flex justify-between">
-                        Can I apply for multiple roles? <span class="text-orange-500">+</span>
+                        What are the prerequisites? <span class="text-orange-500">+</span>
                     </summary>
-                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">Yes, but you must complete a separate task for each domain to prove your proficiency.</p>
+                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">A passion for open-source and basic knowledge in your chosen domain. We value logic over syntax.</p>
                 </details>
                 <details class="card group">
                     <summary class="list-none cursor-pointer font-bold flex justify-between">
-                        Is there a deadline? <span class="text-orange-500">+</span>
+                        How long does the recruitment last? <span class="text-orange-500">+</span>
                     </summary>
-                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">Check the countdown timer on the main portal. Typically, applications close in 7 days.</p>
+                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">The entire process takes approximately 10-14 days from registration to final results.</p>
+                </details>
+                <details class="card group">
+                    <summary class="list-none cursor-pointer font-bold flex justify-between">
+                        Is this limited to technical students? <span class="text-orange-500">+</span>
+                    </summary>
+                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">No. The Management and Design domains are open to all branches and years.</p>
                 </details>
             </div>
         </section>
@@ -88,14 +95,6 @@
         document.querySelectorAll('.nav-icon').forEach(i => i.classList.remove('active'));
         event.currentTarget.classList.add('active');
     }
-
-    function logout() {
-        if(confirm("Terminate Session?")) {
-            document.body.innerHTML = "<div class='h-screen flex items-center justify-center font-mono text-orange-500'>SYSTEM_SHUTDOWN...</div>";
-            setTimeout(() => location.reload(), 1500);
-        }
-    }
-
     setInterval(() => {
         document.getElementById('clock').innerText = new Date().toLocaleTimeString();
     }, 1000);
