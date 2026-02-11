@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Firefox Club | Hub</title>
+    <title>Firefox Club | Central Command</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,7 @@
 <div class="dashboard-container">
     <nav class="sidebar">
         <div class="nav-icon active" onclick="showTab('home')">HOME</div>
-        <div class="nav-icon" onclick="showTab('dash')">DASH</div>
+        <div class="nav-icon" onclick="showTab('dash')">TASK</div>
         <div class="nav-icon" onclick="showTab('faq')">FAQ</div>
         <a href="register.html" class="nav-icon">REG</a>
         <a href="contact.html" class="nav-icon">HELP</a>
@@ -20,68 +20,88 @@
 
     <main class="main-view">
         <header class="flex justify-between items-center mb-10">
-            <h1 class="text-2xl font-bold tracking-widest uppercase">Cyber_Pulse <span class="text-orange-500">v2.0</span></h1>
-            <div id="clock" class="font-mono text-orange-500 bg-black px-4 py-1 rounded border border-gray-800">00:00:00</div>
+            <div>
+                <h1 class="text-2xl font-bold tracking-widest uppercase">Cyber_Pulse <span class="text-orange-500">v3.0</span></h1>
+                <p class="text-[10px] text-gray-500">SECTOR: RECRUITMENT_2026</p>
+            </div>
+            <div id="clock" class="font-mono text-orange-500 bg-black px-4 py-1 rounded border border-gray-800 shadow-[0_0_10px_rgba(255,148,41,0.1)]">00:00:00</div>
         </header>
 
         <section id="home-tab" class="tab-content">
-            <div class="card bg-gradient-to-br from-orange-500/10 to-transparent mb-8">
-                <h2 class="text-5xl font-bold mb-4 italic">The Future is Open.</h2>
-                <p class="text-gray-400 text-lg">Select a domain below to view your specific track.</p>
-            </div>
+            <h2 class="text-4xl font-bold mb-8 italic uppercase">Select_Your_Domain</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card hover:bg-orange-500/5 cursor-pointer">
-                    <h3 class="text-orange-500 font-bold mb-2">01. BACKEND_DEV</h3>
-                    <p class="text-xs text-gray-500">Node.js, Python, Databases, API Architecture.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card border-t-2 border-orange-500">
+                    <h3 class="text-xl font-bold mb-2">01. FRONTEND_ARCHITECT</h3>
+                    <p class="text-sm text-gray-400 mb-4">Focus on UI/UX, responsiveness, and modern utility frameworks.</p>
+                    <div class="bg-black/40 p-3 rounded text-xs font-mono">
+                        <span class="text-orange-500">TASK:</span> Build a dynamic dashboard with real-time state management.
+                    </div>
                 </div>
-                <div class="card hover:bg-orange-500/5 cursor-pointer">
-                    <h3 class="text-orange-500 font-bold mb-2">02. DESIGN_UIUX</h3>
-                    <p class="text-xs text-gray-500">Figma, Prototyping, Neo-retro Aesthetics.</p>
+
+                <div class="card border-t-2 border-blue-500">
+                    <h3 class="text-xl font-bold mb-2 text-blue-400">02. BACKEND_LOGIC</h3>
+                    <p class="text-sm text-gray-400 mb-4">Scalable APIs, database normalization, and secure authentication.</p>
+                    <div class="bg-black/40 p-3 rounded text-xs font-mono">
+                        <span class="text-blue-400">TASK:</span> Create a REST API for a registration portal with JWT security.
+                    </div>
                 </div>
-                <div class="card hover:bg-orange-500/5 cursor-pointer">
-                    <h3 class="text-orange-500 font-bold mb-2">03. MANAGEMENT</h3>
-                    <p class="text-xs text-gray-500">Event planning, Logistics, PR & Outreach.</p>
+
+                <div class="card border-t-2 border-pink-500">
+                    <h3 class="text-xl font-bold mb-2 text-pink-400">03. CREATIVE_DESIGN</h3>
+                    <p class="text-sm text-gray-400 mb-4">Branding, typography, and Neo-Retro digital aesthetics.</p>
+                    <div class="bg-black/40 p-3 rounded text-xs font-mono">
+                        <span class="text-pink-400">TASK:</span> Design a high-fidelity Figma prototype for a Firefox OS revamp.
+                    </div>
+                </div>
+
+                <div class="card border-t-2 border-green-500">
+                    <h3 class="text-xl font-bold mb-2 text-green-400">04. OPERATIONS_MGMT</h3>
+                    <p class="text-sm text-gray-400 mb-4">Logistics, PR, and ecosystem growth strategies.</p>
+                    <div class="bg-black/40 p-3 rounded text-xs font-mono">
+                        <span class="text-green-400">TASK:</span> Draft a full event plan for a 48-hour hackathon.
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="dash-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold mb-6 italic">Personnel_Overview</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="card border-l-4 border-orange-500">
-                    <p class="text-xs text-gray-500 uppercase">Current Domain</p>
-                    <h3 class="text-xl font-bold">Frontend Engineering</h3>
-                    <div class="mt-4 p-2 bg-black rounded text-xs font-mono text-green-500">STATUS: TASK_RECEIVED</div>
-                </div>
-                <div class="card border-l-4 border-gray-700">
-                    <p class="text-xs text-gray-500 uppercase">Interview Schedule</p>
-                    <h3 class="text-xl font-bold">Pending Review</h3>
-                    <p class="text-xs text-gray-400 mt-2">Check back after 24 hours.</p>
+            <div class="card mb-8">
+                <h2 class="text-2xl font-bold mb-4">SUBMIT_MISSION_DATA</h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-xs text-gray-500 uppercase mb-2">Project Repository Link</label>
+                        <input type="text" placeholder="https://github.com/yourname/project" class="w-full bg-black border border-gray-800 p-3 rounded outline-none focus:border-orange-500 text-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 uppercase mb-2">Additional Notes (Tech Stack used)</label>
+                        <textarea class="w-full bg-black border border-gray-800 p-3 rounded h-32 outline-none focus:border-orange-500"></textarea>
+                    </div>
+                    <button class="btn-primary" onclick="alert('Submission Encrypted and Sent!')">UPLOAD TO CORE</button>
                 </div>
             </div>
         </section>
 
         <section id="faq-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold mb-6 italic">Knowledge_Base</h2>
+            <h2 class="text-3xl font-bold mb-8 italic uppercase">System_Knowledge</h2>
             <div class="space-y-4">
                 <details class="card group">
-                    <summary class="list-none cursor-pointer font-bold flex justify-between">
-                        What are the prerequisites? <span class="text-orange-500">+</span>
+                    <summary class="list-none cursor-pointer font-bold flex justify-between items-center">
+                        Is this a remote-only club? <span class="text-orange-500">+</span>
                     </summary>
-                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">A passion for open-source and basic knowledge in your chosen domain. We value logic over syntax.</p>
+                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">No. While we use digital tools, we host physical workshops, meetups, and dev-nights in the SCSE labs.</p>
                 </details>
                 <details class="card group">
-                    <summary class="list-none cursor-pointer font-bold flex justify-between">
-                        How long does the recruitment last? <span class="text-orange-500">+</span>
+                    <summary class="list-none cursor-pointer font-bold flex justify-between items-center">
+                        Can I switch domains later? <span class="text-orange-500">+</span>
                     </summary>
-                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">The entire process takes approximately 10-14 days from registration to final results.</p>
+                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">Internal shifts are allowed after one semester of contribution, based on your performance and team needs.</p>
                 </details>
                 <details class="card group">
-                    <summary class="list-none cursor-pointer font-bold flex justify-between">
-                        Is this limited to technical students? <span class="text-orange-500">+</span>
+                    <summary class="list-none cursor-pointer font-bold flex justify-between items-center">
+                        Who reviews the submissions? <span class="text-orange-500">+</span>
                     </summary>
-                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">No. The Management and Design domains are open to all branches and years.</p>
+                    <p class="pt-4 text-gray-400 text-sm border-t border-gray-800 mt-4">Submissions are reviewed by the Technical Core and Domain Leads using a standardized rubric.</p>
                 </details>
             </div>
         </section>
@@ -98,6 +118,12 @@
     setInterval(() => {
         document.getElementById('clock').innerText = new Date().toLocaleTimeString();
     }, 1000);
+
+    function logout() {
+        if(confirm("Terminate session and wipe cache?")) {
+            location.href = "index.html";
+        }
+    }
 </script>
 </body>
 </html>
